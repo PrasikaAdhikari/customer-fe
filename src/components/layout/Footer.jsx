@@ -25,7 +25,7 @@ const Footer = () => {
     subscribeCustomerAction(email, setEmail, setMessage, setLoading);
   };
   return (
-    <footer className="bg-dark text-light pt-3 pb-5 z-2">
+    <footer className="bg-dark text-light py-4 z-2">
       <div className="container">
         <div className="row gy-3 d-flex flex-row justify-content-between">
           {/* Brand + blurb */}

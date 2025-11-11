@@ -116,8 +116,8 @@ export default function Homepage() {
 
               <Row className="g-4 pt-2">
                 {[
-                  ["500+", "Products"],
-                  ["50K+", "Happy Customers"],
+                  ["50+", "Products"],
+                  ["50+", "Happy Customers"],
                   ["99%", "Satisfaction"],
                 ].map(([val, label]) => (
                   <Col xs={4} key={label}>

@@ -10,6 +10,7 @@ import { BsCart } from "react-icons/bs";
 import { recordRecentlyViewedProduct } from "../features/customer/customerAPI";
 import { getReviewsByProductApi } from "../features/review/reviewAPI";
 import { FaStar } from "react-icons/fa";
+import RecommendedProducts from "../components/RecommendedProducts";
 
 const ProductDetail = () => {
   const { products } = useSelector((store) => store.productStore);
@@ -60,6 +61,18 @@ const ProductDetail = () => {
   const handleThumbnailClick = (imgUrl) => {
     setMainImage(imgUrl);
   };
+
+  const sameCategory =
+    products?.filter(
+      (p) =>
+        p._id !== product?._id && p?.category?._id === product?.category?._id
+    ) || [];
+
+  const recommendations = (
+    sameCategory.length
+      ? sameCategory
+      : products?.filter((p) => p._id !== product?._id) || []
+  ).slice(0, 4);
 
   return (
     <div className="hero-wrap text-light min-vh-100 d-flex flex-column">
@@ -138,7 +151,7 @@ const ProductDetail = () => {
 
         {/* ✅ Reviews Section */}
         <div
-          className="mt-5 text-white"
+          className="my-5 text-white"
           style={{ maxHeight: "300px", overflowY: "scroll" }}
         >
           <h5 className="mb-3">Customer Reviews</h5>
@@ -177,6 +190,8 @@ const ProductDetail = () => {
             ))
           )}
         </div>
+        {/* RECOMMENDATIONS */}
+        <RecommendedProducts products={recommendations} />
       </Container>
     </div>
   );

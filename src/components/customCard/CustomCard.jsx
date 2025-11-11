@@ -53,9 +53,9 @@ const CustomCard = ({ product, tagLabel, tagClass }) => {
             {product.name}
           </Link>
         </h5>
-        <p className="small text-white-50 mb-3">
+        {/* <p className="small text-white-50 mb-3">
           Average Rating: {product.averageRating}
-        </p>
+        </p> */}
         <p className="small text-white-50 mb-3 line-clamp-2 overflow-hidden">
           {product.description}
         </p>
